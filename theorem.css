@@ -1,0 +1,147 @@
+.block-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-items: start;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: start;
+}
+
+.block {
+    border-radius: 10px;
+    height: auto;
+    border: 1px solid white;
+    padding: 0;
+    box-shadow: gray;
+    background: #FFFFFF;
+    padding-bottom: 30px;
+}
+
+.string {
+    padding: 14px 42px;
+    margin: 14px;
+    color: #616161;
+}
+
+.star {
+    margin-right: 14px;
+    max-width: 18px;
+    max-height: 17px
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 0;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: start;
+}
+
+ul {
+    padding: 0
+}
+
+.center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 13px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid white
+}
+
+.title {
+    font-weight: 700;
+    font-size: 24px
+}
+
+.topic {
+    font-size: 14px;
+    border: 1px solid #F5F9FF;
+    border-radius: 10px;
+    padding: 7px 14px;
+    background-color: #50bcfa;
+}
+
+.grade {
+    font-size: 14px;
+    margin-left: 30px;
+    border: 1px solid #FFF6A8;
+    border-radius: 10px;
+    padding: 7px 14px;
+    background-color: #FFF6A8;
+}
+
+.block-content-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-items: start;
+    text-align: start;
+    width: 100%;
+    margin: 0 auto
+}
+
+.views-amount {
+    font-weight: 200;
+    font-size: 12px
+}
+
+.heart {
+    width: 24px;
+    height: 22px;
+    margin-bottom: 220px;
+    margin-left: 240px
+}
+
+.main1 {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.center1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    justify-content: space-between;
+    width: 80%;
+    align-items: start;
+    margin: 13px 0 0;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid white
+}
+
+.description {
+    font-size: 16px
+}
+
+.description-title {
+    font-weight: 700
+}
+
+.heart1 {
+    width: 24px;
+    height: 22px;
+    margin-bottom: -5px;
+    margin-left: 20px
+}
+
+.heart-and-img {
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: 1fr 1fr
+}
