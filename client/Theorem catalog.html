@@ -59,7 +59,7 @@
             </ul>
             <div class="heart-and-img"><img style="width:228px;height:258px; margin-right:-100px" alt=""
                                             src="corners.svg">
-                <img class='heart' alt="" src="heart.svg">
+                <img data-id="1" class='heart' alt="" src="heart.svg">
             </div>
         </div>
 
@@ -73,7 +73,7 @@
                 <li class="views-amount">20 просмотров</li>
             </ul>
             <div class="heart-and-img"><img style="width:228px;height:258px; margin-right:-100px" alt=""
-                                            src="corners.svg"><img class='heart'
+                                            src="corners.svg"><img data-id="2" class='heart'
                                                                    alt=""
                                                                    src="heart.svg">
             </div>
@@ -88,7 +88,7 @@
                 <li class="views-amount">20 просмотров</li>
             </ul>
             <div class="heart-and-img"><img style="width:228px;height:258px; margin-right:-100px" alt=""
-                                            src="corners.svg"><img class='heart'
+                                            src="corners.svg"><img data-id="3" class='heart'
                                                                    alt=""
                                                                    src="heart.svg">
             </div>
@@ -110,16 +110,35 @@
 </ul>
 
 <script>
-    const heart = document.getElementsByClassName('heart');
-    let f = true;
-    Array.from(heart).forEach((i) => {
-        i.addEventListener('click', () => {
-            if (f) {
-                i.src = 'heart-filled.png';
-            } else {
-                i.src = 'heart.svg';
+    const hearts = document.getElementsByClassName('heart');
+    Array.from(hearts).forEach((heart) => {
+        // initial fill
+        const likes = localStorage.getItem('likes');
+        if (likes) {
+            if (JSON.parse(likes).includes(heart.dataset.id)) {
+                heart.src = 'heart-filled.png';
             }
-            f = !f
+        }
+
+        // click event
+        heart.addEventListener('click', () => {
+            if (heart.classList.contains('heart-filled')) {
+                heart.src = 'heart.svg';
+                console.log(1);
+                // remove from localStorage
+                const likes = localStorage.getItem('likes');
+                if (likes) {
+                    localStorage.setItem('likes', JSON.stringify(JSON.parse(likes).filter(id => id !== heart.dataset.id)));
+                }
+            } else {
+                heart.src = 'heart-filled.png';
+                console.log(heart);
+                // add to localStorage
+                const likes = localStorage.getItem('likes');
+                localStorage.setItem('likes', JSON.stringify([...(likes ? JSON.parse(likes) : []), heart.dataset.id]));
+            }
+
+            heart.classList.toggle('heart-filled');
         })
     })
 </script>
