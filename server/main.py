@@ -8,6 +8,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+
 class GeometryTheory(db.Model):
     __tablename__ = 'geometry_theories'
 
@@ -17,6 +18,7 @@ class GeometryTheory(db.Model):
     views = db.Column(db.Integer, default=0)
 
     images = db.relationship('Image', backref='theory', lazy=True)
+
 
 class Image(db.Model):
     __tablename__ = 'images'
@@ -29,6 +31,7 @@ class Image(db.Model):
 with app.app_context():
     db.create_all()
 
+
 @app.route('/theories', methods=['GET'])
 def get_theories():
     theories = GeometryTheory.query.all()
@@ -40,12 +43,13 @@ def get_theories():
         'images': [{'id': img.id, 'filename': img.filename} for img in theory.images]
     } for theory in theories])
 
+
 @app.route('/theories/<int:id>', methods=['GET'])
 def get_theory(id):
     theory = GeometryTheory.query.get(id)
     if not theory:
         abort(404, description=f"Theory with ID {id} not found")
-    
+
     return jsonify({
         'id': theory.id,
         'title': theory.title,
@@ -54,18 +58,20 @@ def get_theory(id):
         'images': [{'id': img.id, 'filename': img.filename} for img in theory.images]
     })
 
+
 @app.route('/theories/<int:id>/views', methods=['PUT'])
 def update_views(id):
     theory = GeometryTheory.query.get(id)
     if not theory:
         abort(404, description=f"Theory with ID {id} not found")
-    
+
     theory.views += 1
     db.session.commit()
     return jsonify({
         'message': 'View count updated',
         'views': theory.views
     })
+
 
 @app.errorhandler(404)
 def not_found(error):

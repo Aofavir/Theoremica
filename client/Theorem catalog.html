@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <link rel="stylesheet" href="theorem.css">
     <link rel="stylesheet" href="main-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,39 +109,8 @@
         </div>
     </li>
 </ul>
+<script src="script.js">
 
-<script>
-    const hearts = document.getElementsByClassName('heart');
-    Array.from(hearts).forEach((heart) => {
-        // initial fill
-        const likes = localStorage.getItem('likes');
-        if (likes) {
-            if (JSON.parse(likes).includes(heart.dataset.id)) {
-                heart.src = 'heart-filled.png';
-            }
-        }
-
-        // click event
-        heart.addEventListener('click', () => {
-            if (heart.classList.contains('heart-filled')) {
-                heart.src = 'heart.svg';
-                console.log(1);
-                // remove from localStorage
-                const likes = localStorage.getItem('likes');
-                if (likes) {
-                    localStorage.setItem('likes', JSON.stringify(JSON.parse(likes).filter(id => id !== heart.dataset.id)));
-                }
-            } else {
-                heart.src = 'heart-filled.png';
-                console.log(heart);
-                // add to localStorage
-                const likes = localStorage.getItem('likes');
-                localStorage.setItem('likes', JSON.stringify([...(likes ? JSON.parse(likes) : []), heart.dataset.id]));
-            }
-
-            heart.classList.toggle('heart-filled');
-        })
-    })
 </script>
 </body>
 </html>
