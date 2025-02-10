@@ -117,3 +117,8 @@ ul {
     margin: 0;
     padding: 0
 }
+
+.theory-link {
+    color: #2d2d2d;
+    text-decoration: none;
+}

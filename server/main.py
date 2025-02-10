@@ -36,7 +36,22 @@ with app.app_context():
 
 @app.route('/theories', methods=['GET'])
 def get_theories():
-    theories = GeometryTheory.query.all()
+    offset = request.args.get("offset")
+    limit = request.args.get("limit")
+    sort = request.args.get("sort")
+
+    query = GeometryTheory.query
+    if sort:
+        # ascending - по возрастанию, descending - по убыванию
+        direction = "asc"
+        if ":" in sort:
+            sort, direction = sort.split(":")
+        query = query.order_by(getattr(GeometryTheory, sort).desc() if direction == "desc" else sort)
+    if offset:
+        query = query.offset(offset)
+    if limit:
+        query = query.limit(limit)
+    theories = query.all()
     return jsonify([{
         'id': theory.id,
         'title': theory.title,
