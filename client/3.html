@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="theorem.css">
+    <link rel="stylesheet" href="main-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+
+    <title>Теоремика</title>
+</head>
+<header style="background: #F6F7FB">
+    <ul class="top-row">
+        <li class="big-logo link"><a href="catalog.html"><img src="theoremica-logo.svg" alt="Теоремика"></a></li>
+        <li class="stick">|</li>
+        <li class="top-small button link">О нас</li>
+        <li class="top-small button link">Для учителей</li>
+        <li class="top-small button link">Для учеников</li>
+        <li class="login button link">Вход</li>
+        <li class="registration button link">Регистрация</li>
+    </ul>
+</header>
+<body style="background: #F6F7FB">
+<ul class="main1">
+    <li class="left"> <!-- левая часть -->
+        <div class="block">
+            <ul class="block-content" id="favorite-theories">
+                <li><img src="heart.svg" class="star" alt="Star">Избранное</li>
+            </ul>
+        </div>
+        <div class="block">
+            <ul class="block-content">
+                <li><img src="triangle.svg" class="star" alt="Star">Треугольники</li>
+                <li class="string"><a href="5.html">Подобие треугольников</a></li>
+                <li class="string"><a href="4.html">Теорема косинусов</a></li>
+                <li class="string"><a href="2.html">Теорема синусов</a></li>
+                <li class="string"><a href="6.html">Теорема Менелая</a></li>
+            </ul>
+        </div>
+        <div class="block">
+            <ul class="block-content">
+                <li><img src="circle.svg" class="star" alt="Star">Окружности</li>
+                <li class="string"><a href="7.html">Касательная и её свойства</a></li>
+                <li class="string"><a href="3.html">Центральные и вписанные углы</a></li>
+                <li class="string"><a href="8.html">Длина и площадь окружности и её секторов</a></li>
+            </ul>
+        </div>
+    </li>
+
+
+    <li>
+        <div class="center1">
+            <ul class="block-content-card" id="theory-content" data-theory-id="3">
+            </ul>
+            <div id="image-content"></div>
+        </div>
+    </li>
+</ul>
+</body>
+<script type="module" src="js/catalog.js"></script>
+<script type="module" src="js/theory.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+</html>
