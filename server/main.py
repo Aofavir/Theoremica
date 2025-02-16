@@ -21,12 +21,31 @@ class GeometryTheory(db.Model):
 
     images = db.relationship('Image', backref='theory', lazy=True)
 
+    grade = db.relationship('Grade', backref='theory', lazy=True)
+    topics = db.relationship('Topic', backref='theory', lazy=True)
+
 
 class Image(db.Model):
     __tablename__ = 'images'
 
     id = db.Column(db.Integer, primary_key=True)
     filename = db.Column(db.String(255), nullable=False)
+    theory_id = db.Column(db.Integer, db.ForeignKey('geometry_theories.id'), nullable=False)
+
+
+class Grade(db.Model):
+    __tablename__ = 'grades'
+
+    id = db.Column(db.Integer, primary_key=True)
+    grade = db.Column(db.String(255), nullable=False)
+    theory_id = db.Column(db.Integer, db.ForeignKey('geometry_theories.id'), nullable=False)
+
+
+class Topic(db.Model):
+    __tablename__ = 'topics'
+
+    id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.String(255), nullable=False)
     theory_id = db.Column(db.Integer, db.ForeignKey('geometry_theories.id'), nullable=False)
 
 
@@ -41,23 +60,25 @@ def get_theories():
     sort = request.args.get("sort")
 
     query = GeometryTheory.query
+    if offset:
+        query = query.offset(offset)
+    if limit:
+        query = query.limit(limit)
     if sort:
         # ascending - по возрастанию, descending - по убыванию
         direction = "asc"
         if ":" in sort:
             sort, direction = sort.split(":")
-        query = query.order_by(getattr(GeometryTheory, sort).desc() if direction == "desc" else sort)
-    if offset:
-        query = query.offset(offset)
-    if limit:
-        query = query.limit(limit)
-    theories = query.all()
+        query = query.order_by(sort.desc() if direction == "desc" else sort)
+    theories = GeometryTheory.query.all()
     return jsonify([{
         'id': theory.id,
         'title': theory.title,
         'description': theory.description,
         'views': theory.views,
-        'images': [{'id': img.id, 'filename': img.filename} for img in theory.images]
+        'images': [{'id': img.id, 'filename': img.filename} for img in theory.images],
+        'grade': getattr(theory.grade, "grade", None),
+        'topics': [topic.topic for topic in theory.topics],
     } for theory in theories])
 
 
@@ -72,7 +93,9 @@ def get_theory(id):
         'title': theory.title,
         'description': theory.description,
         'views': theory.views,
-        'images': [{'id': img.id, 'filename': img.filename} for img in theory.images]
+        'images': [{'id': img.id, 'filename': img.filename} for img in theory.images],
+        'grade': getattr(theory.grade, "grade", None),
+        'topics': [topic.topic for topic in theory.topics],
     })
 
 
