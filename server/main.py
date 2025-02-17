@@ -25,6 +25,7 @@ class GeometryTheory(db.Model):
     topics = db.relationship('Topic', backref='theory', lazy=True)
 
 
+
 class Image(db.Model):
     __tablename__ = 'images'
 
@@ -60,25 +61,26 @@ def get_theories():
     sort = request.args.get("sort")
 
     query = GeometryTheory.query
-    if offset:
-        query = query.offset(offset)
-    if limit:
-        query = query.limit(limit)
     if sort:
         # ascending - по возрастанию, descending - по убыванию
         direction = "asc"
         if ":" in sort:
             sort, direction = sort.split(":")
-        query = query.order_by(sort.desc() if direction == "desc" else sort)
-    theories = GeometryTheory.query.all()
+        query = query.order_by(
+            getattr(GeometryTheory, sort).desc() if direction == "desc" else getattr(GeometryTheory, sort))
+    if offset:
+        query = query.offset(offset)
+    if limit:
+        query = query.limit(limit)
+    theories = query.all()
     return jsonify([{
         'id': theory.id,
         'title': theory.title,
         'description': theory.description,
         'views': theory.views,
         'images': [{'id': img.id, 'filename': img.filename} for img in theory.images],
-        'grade': getattr(theory.grade, "grade", None),
-        'topics': [topic.topic for topic in theory.topics],
+        'grade': [grade.grade for grade in theory.grade or []],
+        'topics': [topic.topic for topic in theory.topics or []],
     } for theory in theories])
 
 
@@ -94,8 +96,8 @@ def get_theory(id):
         'description': theory.description,
         'views': theory.views,
         'images': [{'id': img.id, 'filename': img.filename} for img in theory.images],
-        'grade': getattr(theory.grade, "grade", None),
-        'topics': [topic.topic for topic in theory.topics],
+        'grade': [grade.grade for grade in theory.grade or []],
+        'topics': [topic.topic for topic in theory.topics or []],
     })
 
 
