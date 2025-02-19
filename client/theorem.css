@@ -73,7 +73,6 @@ ul {
 
 .grade {
     font-size: 14px;
-    margin-left: 30px;
     border: 1px solid #FFF6A8;
     border-radius: 10px;
     padding: 7px 14px;
@@ -98,8 +97,7 @@ ul {
 .heart {
     width: 24px;
     height: 22px;
-    margin-bottom: 220px;
-    margin-left: 240px
+    margin-left: 220px
 }
 
 .main1 {
@@ -143,5 +141,5 @@ ul {
 .heart-and-img {
     display: flex;
     flex-direction: row;
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr;
 }

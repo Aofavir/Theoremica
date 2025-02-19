@@ -13,20 +13,20 @@ document.addEventListener("DOMContentLoaded", async function () {
                 
                 <ul class="block-content-card">
                     <li class="title">${theory.title}</li>
-                    <li><span class="topic">${theory.topics}</span> <span class="grade">${theory.grade} класс</span></li>
+                    <li><span class="topic">${theory.topics}</span><br/><br/><span class="grade">${theory.grade} класс</span></li>
                     <li></li>
                     <li></li>
                     <li class="views-amount">просмотров: ${theory.views}</li>
                 </ul>
                 
-                <div class="heart-and-img"><img style="width:228px;height:258px; margin-right:-100px" alt=""
+                <div class="heart-and-img"><img style="min-width: 314px; min-height: 10px;width:37.5%;height:37.5%; margin-right:-100px" alt=""
                                                 src="${
             theory.images?.[0]
                 ?.filename ?? ""
         }">
                     <img data-id="${
             theory.id
-        }" class='heart' alt="" src="heart.svg">
+        }" class='heart' alt="" src="images/heart.svg">
                 </div>
                 
             </a>

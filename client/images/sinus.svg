@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="283"
+   height="283"
+   viewBox="0 0 74.877082 74.877083"
+   version="1.1"
+   id="svg84905"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="teorema-sinusov.svg"
+   inkscape:export-filename="teorema-kosinusov.webp"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview84907"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.0888418"
+     inkscape:cx="150.80127"
+     inkscape:cy="130.2157"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs84902" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#fa6b6b;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path90894-7"
+       sodipodi:type="arc"
+       sodipodi:cx="6.9840784"
+       sodipodi:cy="57.413536"
+       sodipodi:rx="8.1829176"
+       sodipodi:ry="8.1829176"
+       sodipodi:start="5.025981"
+       sodipodi:end="6.25246"
+       sodipodi:arc-type="arc"
+       d="m 9.5083241,49.629686 a 8.1829176,8.1829176 0 0 1 5.6548099,7.532467"
+       sodipodi:open="true" />
+    <path
+       style="fill:none;stroke:#fa6b6b;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path90894-7-2-6"
+       sodipodi:type="arc"
+       sodipodi:cx="68.733894"
+       sodipodi:cy="57.448124"
+       sodipodi:rx="8.1829176"
+       sodipodi:ry="8.1829176"
+       sodipodi:start="3.1630889"
+       sodipodi:end="4.0038509"
+       sodipodi:arc-type="arc"
+       d="M 60.552867,57.272235 A 8.1829176,8.1829176 0 0 1 63.40907,51.23472"
+       sodipodi:open="true" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 6.6377386,57.448121 H 68.733888 68.620566"
+       id="path85443" />
+    <path
+       style="fill:none;stroke:#fa6b6b;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path90894-7-2"
+       sodipodi:type="arc"
+       sodipodi:cx="24.314745"
+       sodipodi:cy="3.1496375"
+       sodipodi:rx="8.1829176"
+       sodipodi:ry="8.1829176"
+       sodipodi:start="0.90312496"
+       sodipodi:end="1.8647174"
+       sodipodi:arc-type="arc"
+       d="m 29.381273,9.5754011 a 8.1829176,8.1829176 0 0 1 -7.43718,1.4062319"
+       sodipodi:open="true" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 24.314745,3.1496382 6.6377386,57.448121"
+       id="path85445" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 68.620572,57.448121 24.314745,3.1496382"
+       id="path85447" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';fill:#43a6dd;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       x="35.63657"
+       y="63.98737"
+       id="text7652-61"><tspan
+         id="tspan7650-9"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-dasharray:none;font-size:8.46666667px"
+         x="35.63657"
+         y="63.98737">a</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';fill:#43a6dd;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       x="7.3482513"
+       y="32.151253"
+       id="text7652-61-9"><tspan
+         id="tspan7650-9-3"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-dasharray:none;font-size:8.46666667px"
+         x="7.3482513"
+         y="32.151253">b</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';fill:#43a6dd;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       x="51.065319"
+       y="31.339455"
+       id="text7652-61-9-3"><tspan
+         id="tspan7650-9-3-7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-dasharray:none;font-size:8.46666667px"
+         x="51.065319"
+         y="31.339455">c</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       x="23.317919"
+       y="17.018995"
+       id="text7652-6"><tspan
+         id="tspan7650-2"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-dasharray:none;font-size:8.46666667px"
+         x="23.317919"
+         y="17.018995">α</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       x="55.331928"
+       y="54.512787"
+       id="text7652-6-2"><tspan
+         id="tspan7650-2-1"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-dasharray:none;font-size:8.46666667px"
+         x="55.331928"
+         y="54.512787">β</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       x="16.075729"
+       y="53.721329"
+       id="text7652-6-2-8"><tspan
+         id="tspan7650-2-1-5"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-dasharray:none;font-size:8.46666667px"
+         x="16.075729"
+         y="53.721329">γ</tspan></text>
+    <circle
+       style="fill:none;stroke:#888888;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
+       id="path8538"
+       cx="37.588543"
+       cy="37.588543"
+       r="37.139736" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#43a6dd;stroke-width:0.694413;stroke-dasharray:none;stroke-opacity:1"
+       d="m 37.439738,37.439738 36.894355,5.545537"
+       id="path9168"
+       sodipodi:nodetypes="cc" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.694413;stroke-dasharray:none;stroke-opacity:1"
+       id="path9112"
+       cx="37.439739"
+       cy="37.439739"
+       r="1.1550617" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold,  Bold';fill:#43a6dd;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       x="60.83218"
+       y="40.131218"
+       id="text7652-61-9-7"><tspan
+         id="tspan7650-9-3-3"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.266454;stroke-dasharray:none;font-size:8.46666667px"
+         x="60.83218"
+         y="40.131218">R</tspan></text>
+  </g>
+</svg>

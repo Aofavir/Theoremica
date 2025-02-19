@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log(theory);
     theoryContent.innerHTML = `
     <li><span class="topic">${theory.topics}</span> <span class="grade">${theory.grade} класс</span><img class='heart1' alt=""
-                                                                                                     src="heart.svg"></li>
+                                                                                                     src="images/heart.svg"></li>
         <li class="title" id="title">${theory.title}</li>
         <li class="description" id="description">${theory.description}</li>
         <li class="views-amount" id="views">Просмотры: ${theory.views}</li>
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         ],
     });
     document.getElementById("image-content").innerHTML = `
-    <img style="width:526px;height:651px; margin-right:-100px" alt="" src=${
+    <img style="width:75%;height:75%; margin-right:-100px; margin-top: 65px" alt="" src=${
         theory.images?.[0]?.filename ?? ""
     }>
     `;

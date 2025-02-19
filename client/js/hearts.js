@@ -5,7 +5,7 @@ export function setHeartsListeners() {
     const likes = localStorage.getItem("likes");
     if (likes) {
       if (JSON.parse(likes).includes(heart.dataset.id)) {
-        heart.src = "heart-filled.png";
+        heart.src = "images/heart-filled.png";
       }
     }
 
