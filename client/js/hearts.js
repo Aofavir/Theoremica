@@ -1,4 +1,4 @@
-export function setHeartsListeners() {
+export function setHeartsListeners(theories) {
   const hearts = document.getElementsByClassName("heart");
   Array.from(hearts).forEach((heart) => {
     // initial fill
@@ -12,7 +12,7 @@ export function setHeartsListeners() {
     // click event
     heart.addEventListener("click", (event) => {
       if (heart.classList.contains("heart-filled")) {
-        heart.src = "heart.svg";
+        heart.src = "images/heart.svg";
         // remove from localStorage
         const likes = localStorage.getItem("likes");
         if (likes) {
@@ -24,7 +24,7 @@ export function setHeartsListeners() {
           );
         }
       } else {
-        heart.src = "heart-filled.png";
+        heart.src = "images/heart-filled.png";
         // add to localStorage
         const likes = localStorage.getItem("likes");
         localStorage.setItem(
@@ -37,7 +37,23 @@ export function setHeartsListeners() {
       }
 
       heart.classList.toggle("heart-filled");
+      buildLikesList(theories);
       event.preventDefault();
     });
   });
+}
+
+export function buildLikesList(theories) {
+  const likes = localStorage.getItem("likes");
+  const favoritesBlock = document.getElementById("favorite-theories");
+  if (likes && favoritesBlock) {
+      let likesHtml = "<li><img src=\"images/heart.svg\" class=\"star\" alt=\"Star\">Избранное</li>";
+      for (const like of likes) {
+          const likedTheory = theories.find((theory) => theory.id == like);
+          if (likedTheory) {
+              likesHtml += `<li class="string"><a href="${likedTheory.id}.html">${likedTheory.title}</a></li>`;
+          }
+      }
+      favoritesBlock.innerHTML = likesHtml;
+  }
 }

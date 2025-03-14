@@ -1,5 +1,5 @@
 import api from "./api.js";
-import {setHeartsListeners} from "./hearts.js";
+import {buildLikesList, setHeartsListeners} from "./hearts.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
     // Код здесь будет ждать до загрузки DOM
@@ -49,18 +49,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         popularBlock.innerHTML += popularListHtml;
     }
 
-    const likes = localStorage.getItem("likes");
-    const favoritesBlock = document.getElementById("favorite-theories");
-    if (likes && favoritesBlock) {
-        let likesHtml = "";
-        for (const like of likes) {
-            const likedTheory = theories.find((theory) => theory.id == like);
-            if (likedTheory) {
-                likesHtml += `<li class="string"><a href="${likedTheory.id}.html">${likedTheory.title}</a></li>`;
-            }
-        }
-        favoritesBlock.innerHTML += likesHtml;
-    }
-
-    setHeartsListeners();
+    buildLikesList(theories);
+    setHeartsListeners(theories);
 });

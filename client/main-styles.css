@@ -108,6 +108,15 @@ a {
     margin: 20px
 }
 
+.left {
+    overflow-y: auto;
+    height: 85vh;
+}
+
+.left::-webkit-scrollbar {
+    display: none;
+}
+
 .left-image {
     position: fixed;
     padding: 0;

@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const likes = localStorage.getItem('likes');
         if (likes) {
             if (JSON.parse(likes).includes(heart.dataset.id)) {
-                heart.src = 'heart-filled.png';
+                heart.src = 'images/heart-filled.png';
             }
         }
 
         // click event
         heart.addEventListener('click', () => {
             if (heart.classList.contains('heart-filled')) {
-                heart.src = 'heart.svg';
+                heart.src = 'images/heart.svg';
                 console.log(1);
                 // remove from localStorage
                 const likes = localStorage.getItem('likes');
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     localStorage.setItem('likes', JSON.stringify(JSON.parse(likes).filter(id => id !== heart.dataset.id)));
                 }
             } else {
-                heart.src = 'heart-filled.png';
+                heart.src = 'images/heart-filled.png';
                 console.log(heart);
                 // add to localStorage
                 const likes = localStorage.getItem('likes');
