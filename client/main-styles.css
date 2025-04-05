@@ -111,6 +111,7 @@ a {
 .left {
     overflow-y: auto;
     height: 85vh;
+    border-radius: 10px;
 }
 
 .left::-webkit-scrollbar {
@@ -135,4 +136,13 @@ a {
 .theory-link {
     color: #2d2d2d;
     text-decoration: none;
+}
+
+@media (max-width: 576px) {
+    .title-left {
+        font-size: 16px
+    }
+    .left {
+        width: 200px;
+    }
 }

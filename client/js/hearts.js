@@ -5,6 +5,7 @@ export function setHeartsListeners(theories) {
     const likes = localStorage.getItem("likes");
     if (likes) {
       if (JSON.parse(likes).includes(heart.dataset.id)) {
+          heart.classList.add('heart-filled')
         heart.src = "images/heart-filled.png";
       }
     }
@@ -47,7 +48,7 @@ export function buildLikesList(theories) {
   const likes = localStorage.getItem("likes");
   const favoritesBlock = document.getElementById("favorite-theories");
   if (likes && favoritesBlock) {
-      let likesHtml = "<li><img src=\"images/heart.svg\" class=\"star\" alt=\"Star\">Избранное</li>";
+      let likesHtml = "<li><img src=\"images/heart.svg\" class=\"star\" alt=\"Star\"><span class='title-left'>Избранное</span></li>";
       for (const like of likes) {
           const likedTheory = theories.find((theory) => theory.id == like);
           if (likedTheory) {

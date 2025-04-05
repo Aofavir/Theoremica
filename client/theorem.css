@@ -9,7 +9,7 @@
 }
 
 .block {
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     height: auto;
     border: 1px solid white;
     padding: 0;
@@ -22,6 +22,7 @@
     padding: 14px 42px;
     margin: 14px;
     color: #616161;
+
 }
 
 .star {
@@ -143,4 +144,8 @@ ul {
     flex-direction: row;
     grid-template-columns: 1fr 1fr;
     align-self: start
+}
+
+
+@media (max-width: 576px) {
 }
