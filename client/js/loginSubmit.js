@@ -1,0 +1,21 @@
+import api from "./api.js";
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById('login-form');
+    const checkbox = document.getElementById('remember');
+
+    loginForm.addEventListener('submit', (event) => {
+        console.log(123)
+        event.preventDefault();
+        sendData();
+    })
+
+    async function sendData() {
+        console.log(loginForm)
+        const formData = new FormData(loginForm);
+        console.log(Array.from(formData));
+        formData.append('remember', checkbox.checked);
+        await api.login(formData);
+        window.location.href='/';
+    }
+});

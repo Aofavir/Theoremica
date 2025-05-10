@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main-styles.css">
+    <link rel="stylesheet" href="theorem.css">
+    <link rel="stylesheet" href="auth1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="images/theoremica-small-logo.png">
+    <script type="module" src="js/registerSubmit.js"></script>
+    <title>Register</title>
+</head>
+<header>
+    <div class="top-row">
+        <div class="big-logo top-row-link link"><a href="catalog.html"><img src="images/theoremica-logo.svg"
+                                                                            alt="Теоремика"></a></div>
+        <a class="login button top-row-link link" href="login.html">Вход</a>
+        <a class="registration button top-row-link link" href="register.html">Регистрация</a>
+    </div>
+</header>
+
+<body>
+<ul class="center">
+    <li class="left-column"><img class="left-image"
+                                 src="images/student.svg" alt="Student reading a book">
+    </li>
+    <li class="main-text">
+        <img class="img-cube" src="images/theoremica-small-logo.png" alt="Cube">
+        <span class="welcome-back">Создайте аккаунт!</span>
+        <div class="no-account">Уже есть аккаунт? <span class="register link"><a href="login.html">Войдите!</a></span>
+        </div>
+        <form id="register-form" class="big-form">
+            <div class="form-item">
+                Ваша фамилия
+                <label class="mail-text">
+                    <input name="surname" type="text" placeholder="Введите фамилию" class="form">
+                </label>
+            </div>
+            <div class="form-item">
+                Ваше имя
+                <label class="password-text">
+                    <input name="first-name" type="text" placeholder="Введите имя" class="form">
+                </label>
+            </div>
+            <div class="form-item">
+                <label for="grade" class="mail-text">Ваш класс</label>
+                <p style="margin: 0"></p>
+                <select class="form" name="grade" id="grade">
+                    <option value="choose">Выберите Ваш класс</option>
+                    <option value="first">1</option>
+                    <option value="second">2</option>
+                    <option value="third">3</option>
+                    <option value="fourth">4</option>
+                    <option value="fifth">5</option>
+                    <option value="sixth">6</option>
+                    <option value="seventh">7</option>
+                    <option value="eighth">8</option>
+                    <option value="ninth">9</option>
+                    <option value="tenth">10</option>
+                    <option value="eleventh">11</option>
+                </select>
+            </div>
+            <div class="form-item">
+                Почта
+                <label class="mail-text">
+                    <input name="email" type="text" placeholder="Введите почту" class="form">
+                </label>
+            </div>
+            <div class="form-item">
+                Пароль
+                <label class="mail-text">
+                    <input name="password" type="password" placeholder="Введите пароль" class="form">
+                </label>
+            </div>
+            <div class="form-item">
+                Повторите пароль
+                <label class="mail-text">
+                    <input name="repeat-password" type="password" placeholder="Повторите пароль" class="form">
+                </label>
+            </div>
+            <button style='margin-top:0' class="log-in-button link" id="register-button" type="submit"><img
+                    src="images/user.png" class="user-img" alt="User"><span
+                    class="enter">Создать аккаунт</span></button>
+        </form>
+    </li>
+</ul>
+</body>

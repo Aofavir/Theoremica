@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main-styles.css">
+    <link rel="stylesheet" href="theorem.css">
+    <link rel="stylesheet" href="auth1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="images/theoremica-small-logo.png">
+    <script type="module" src="js/loginSubmit.js"></script>
+    <title>Login</title>
+</head>
+<header>
+    <div class="top-row">
+        <div class="big-logo top-row-link link"><a href="catalog.html"><img src="images/theoremica-logo.svg"
+                                                                            alt="Теоремика"></a></div>
+        <a class="login button top-row-link link" href="login.html">Вход</a>
+        <a class="registration button top-row-link link" href="register.html">Регистрация</a>
+    </div>
+</header>
+<body>
+<ul class="center">
+    <li><img class="left-image"
+             src="./images/login.svg" alt="Teaching the quadratic formula">
+    </li>
+    <li class="main-text">
+        <img class="img-cube" src="images/theoremica-small-logo.png" alt="Theoremica">
+        <span class="welcome-back">С возвращением!</span>
+        <div class="no-account">Нет аккаунта? <span class="register link"><a href="register.html">Зарегистрируйтесь!</a></span>
+        </div>
+        <form id="login-form" class="big-form">
+            <div class="form-item">
+                Почта
+                <label class="mail-text" style="max-width:100%">
+                    <input name="email" type="text" placeholder="Введите почту" class="form">
+                </label>
+            </div>
+            <div class="form-item">
+                Пароль
+                <label class="password-text">
+                    <input name="password" type="password" placeholder="Введите пароль" class="form">
+                </label>
+            </div>
+            <div class="remember-forget">
+                <div class="checkbox-line">
+                    <input type="checkbox" id="remember" name="remember" value="remember" class="link checkbox">
+                    <label for="remember" class="remember link">Запомнить меня</label>
+                </div>
+                <div class="forgot-password link">Забыли пароль?</div>
+            </div>
+            <button class="log-in-button link" id="login-button" type="submit"><img src="images/user.png"
+                                                                                    class="user-img" alt="User"><span
+                    class="enter">Войти</span></button>
+        </form>
+    </li>
+</ul>
+</body>

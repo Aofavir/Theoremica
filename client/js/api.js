@@ -54,6 +54,38 @@ class Api {
       console.error("Error fetching theories:", error);
     }
   }
+
+  async signup(userData) {
+    try {
+      const response = await fetch(
+        `${this.baseURL}/signup`,{
+        method: "POST",
+        body: userData
+      }
+      );
+      if (!response.ok) throw new Error("Failed to signup");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
+  }
+
+  async login(userData) {
+    try {
+      const response = await fetch(
+        `${this.baseURL}/login`,{
+        method: "POST",
+        body: userData
+      }
+      );
+      if (!response.ok) throw new Error("Failed to login");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
+  }
 }
 
 export default new Api();
