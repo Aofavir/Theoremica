@@ -2,17 +2,15 @@ from flask import Flask, jsonify, request, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin, LoginManager, login_user, logout_user, login_required
+from flask_login import UserMixin, LoginManager, login_user, logout_user, login_required, current_user
+from sqlalchemy_serializer import SerializerMixin
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///geometry_theories.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'your-secret-key-here'  # Change this to a random secret key
-app.config['SESSION_COOKIE_HTTPONLY'] = True
-app.config['SESSION_COOKIE_SECURE'] = True  # Enable in production with HTTPS
-app.config['REMEMBER_COOKIE_HTTPONLY'] = True
+app.config['SECRET_KEY'] = 'Theoremica'  # Change this to a random secret key
 app.config['REMEMBER_COOKIE_DURATION'] = 86400  # 1 day in seconds
 login_manager = LoginManager(app)
 
@@ -57,7 +55,7 @@ class Topic(db.Model):
     theory_id = db.Column(db.Integer, db.ForeignKey('geometry_theories.id'), nullable=False)
 
 
-class User(db.Model, UserMixin):
+class User(db.Model, UserMixin, SerializerMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -73,6 +71,13 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.hashed_password, password)
+
+    def get_id(self):
+        return str(self.id)
+
+    @property
+    def is_active(self):
+        return True  # Or your custom logic
 
 
 with app.app_context():
@@ -194,8 +199,8 @@ def login():
     if not user or not user.check_password(password):
         return jsonify({'message': 'Неверные почта или пароль'}), 400
 
-    login_user(user, remember=remember)
-
+    login_user(user, remember=True)
+    print(current_user.is_authenticated)
     return jsonify({'message': 'Успешная авторизация'})
 
 
@@ -204,6 +209,19 @@ def login():
 def logout():
     logout_user()
     return jsonify({'message': 'Успешный выход из аккаунта'})
+
+
+@app.route('/get_current_user', methods=['GET'])
+# @login_required
+def get_current_user():
+    print(current_user.is_authenticated)
+    if not current_user.is_authenticated:
+        return jsonify({'message': 'You are not authorized'}), 401
+    return jsonify({
+        'first_name': current_user.first_name,
+        'surname': current_user.surname,
+        'is_admin': current_user.is_admin
+    }), 200
 
 
 if __name__ == '__main__':

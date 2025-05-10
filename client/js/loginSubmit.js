@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(Array.from(formData));
         formData.append('remember', checkbox.checked);
         await api.login(formData);
+        console.log('successful login')
         window.location.href='/';
     }
 });
