@@ -1,10 +1,11 @@
 import api from "./api.js";
 
-const user = await api.getCurrentUser()
-if (!(user?.is_admin && user['is_admin'])) {
-    window.location.href = '/'
-}
+
 document.addEventListener("DOMContentLoaded", async function () {
+    const user = await api.getCurrentUser()
+    if (!(user?.is_admin && user['is_admin'])) {
+        window.location.href = '/'
+    }
     const url_string = window.location.href;
     const url = new URL(url_string);
     const id = url.searchParams.get("id");
