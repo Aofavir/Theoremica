@@ -151,8 +151,8 @@ def get_theory_title(title):
 @login_required
 @app.route('/theory_change/<int:id>', methods=['POST'])
 def change_theory(id):
-    if not current_user.is_authenticated or 'is_admin' not in current_user or not current_user['is_admin']:
-        return jsonify({'message': 'Доступ только администраторам'})
+    # if not current_user.is_authenticated or 'is_admin' not in current_user or not current_user['is_admin']:
+    #     return jsonify({'message': 'Доступ только администраторам'})
     theory = GeometryTheory.query.get(id)
     params = request.get_json()
     if not theory:
