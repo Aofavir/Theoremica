@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="theorem.css">
+    <link rel="stylesheet" href="main-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/theoremica-small-logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+
+    <title>Теоремика</title>
+</head>
+<header style="background: #F6F7FB">
+    <ul class="top-row">
+        <li class="big-logo link"><a href="catalog.html"><img src="images/theoremica-logo.svg" alt="Теоремика"></a></li>
+    </ul>
+</header>
+<body style="background: #F6F7FB">
+<ul class="main1">
+    <li class="left"> <!-- левая часть -->
+        <div class="block">
+            <ul class="block-content" id="favorite-theories">
+                <li><img src="images/heart.svg" class="star" alt="Heart">Избранное</li>
+            </ul>
+        </div>
+        <div class="block">
+            <ul class="block-content">
+                <li><img src="images/triangle.svg" class="star" alt="Triangle">Треугольники</li>
+                <li class="string">Подобие треугольников</li>
+                <li class="string">Свойства медиан</li>
+                <li class="string">Теорема синусов</li>
+            </ul>
+        </div>
+        <div class="block">
+            <ul class="block-content">
+                <li><img src="images/circle.svg" class="star" alt="Circle">Окружности</li>
+                <li class="string">Касательная и её свойства</li>
+                <li class="string">Хорда и её свойства</li>
+                <li class="string">Центральные и вписанные углы</li>
+                <li class="string">Длина и площадь окружности и её секторов</li>
+            </ul>
+        </div>
+    </li>
+
+
+    <li>
+        <div class="center1">
+            <ul class="block-content-card" id="theory-content" data-theory-id="1">
+            </ul>
+            <div id="image-content"></div>
+        </div>
+    </li>
+</ul>
+</body>
+<script type="module" src="js/catalog.js"></script>
+<script type="module" src="js/theory.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+</html>

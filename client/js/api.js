@@ -87,21 +87,21 @@ class Api {
         }
     }
 
-    async getCurrentUser() {
-        try {
-            const response = await fetch(
-                `${this.baseURL}/get_current_user`,
-                {
-                    credentials: 'include'
-                }
-            );
-            if (!response.ok) throw new Error("Failed to get current user");
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error("Error getting current user", error);
-        }
-    }
+    // async getCurrentUser() {
+    //     try {
+    //         const response = await fetch(
+    //             `${this.baseURL}/get_current_user`,
+    //             {
+    //                 credentials: 'include'
+    //             }
+    //         );
+    //         if (!response.ok) throw new Error("Failed to get current user");
+    //         const data = await response.json();
+    //         return data;
+    //     } catch (error) {
+    //         console.error("Error getting current user", error);
+    //     }
+    // }
 }
 
 export default new Api();

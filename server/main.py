@@ -152,10 +152,10 @@ def not_found(error):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return User.query.get(user_id)
 
 
-@app.route('/signup', methods=['POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     data = request.form
     surname = data.get('surname')
@@ -186,7 +186,7 @@ def signup():
     return jsonify({'message': 'Аккаунт создан'})
 
 
-@app.route('/login', methods=["POST"])
+@app.route('/login', methods=["GET", "POST"])
 def login():
     data = request.form
     email = data.get('email')
@@ -201,6 +201,7 @@ def login():
 
     login_user(user, remember=True)
     print(current_user.is_authenticated)
+    print(current_user.surname, current_user.first_name, current_user.is_admin)
     return jsonify({'message': 'Успешная авторизация'})
 
 
@@ -211,17 +212,17 @@ def logout():
     return jsonify({'message': 'Успешный выход из аккаунта'})
 
 
-@app.route('/get_current_user', methods=['GET'])
+# @app.route('/get_current_user', methods=['GET'])
 # @login_required
-def get_current_user():
-    print(current_user.is_authenticated)
-    if not current_user.is_authenticated:
-        return jsonify({'message': 'You are not authorized'}), 401
-    return jsonify({
-        'first_name': current_user.first_name,
-        'surname': current_user.surname,
-        'is_admin': current_user.is_admin
-    }), 200
+# def get_current_user():
+#     print(current_user.is_authenticated)
+#     if not current_user.is_authenticated:
+#         return jsonify({'message': 'You are not authorized'}), 401
+#     return jsonify({
+#         'first_name': current_user.first_name,
+#         'surname': current_user.surname,
+#         'is_admin': current_user.is_admin
+#     }), 200
 
 
 if __name__ == '__main__':

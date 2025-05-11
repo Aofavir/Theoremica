@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkbox = document.getElementById('remember');
 
     loginForm.addEventListener('submit', (event) => {
-        console.log(123)
         event.preventDefault();
         sendData();
     })

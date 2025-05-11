@@ -98,7 +98,7 @@ ul {
 .heart {
     width: 24px;
     height: 22px;
-    margin-left: 220px
+    margin-left: auto
 }
 
 .main1 {
@@ -146,6 +146,12 @@ ul {
     align-self: start
 }
 
+
+.edit-img {
+    width: 24px;
+    height: 22px;
+    margin-left: auto;
+}
 
 @media (max-width: 576px) {
 }

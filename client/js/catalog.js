@@ -19,16 +19,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     <li class="views-amount">просмотров: ${theory.views}</li>
                 </ul>
                 
-                <div class="heart-and-img"><img style="min-width: 314px; min-height: 10px;width:37.5%;height:37.5%; margin-right:-100px" alt=""
-                                                src="${
-            theory.images?.[0]
-                ?.filename ?? ""
-        }">
-                    <img data-id="${
-            theory.id
-        }" class='heart' alt="" src="images/heart.svg">
-                </div>
-                
+                <div class="heart-and-img"><img style="min-width: 314px; min-height: 10px;width:37.5%;height:37.5%; margin-right:-100px" alt="" src="${theory.images?.[0]?.filename ?? ""}"><img data-id="${theory.id}" class="edit-img" alt="Редактор" src="images/edit.svg"><img data-id="${theory.id}" id="heart" class='heart' alt="" src="images/heart.svg"></div>                
             </a>
         
     `;
