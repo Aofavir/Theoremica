@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(registerForm);
         console.log(Array.from(formData));
         await api.signup(formData);
-        window.location.href='';
+        window.location.href='/';
     }
 });

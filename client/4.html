@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="theorem.css">
     <link rel="stylesheet" href="main-styles.css">
+    <script type="module" src="js/catalog.js"></script>
+    <script type="module" src="js/theory.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+    <script type="module" src="js/editHref.js"></script>
+    <script type="module" src="js/header.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -15,9 +21,14 @@
     <title>Теоремика</title>
 </head>
 <header style="background: #F6F7FB">
-    <ul class="top-row">
-        <li class="big-logo link"><a href="catalog.html"><img src="images/theoremica-logo.svg" alt="Теоремика"></a></li>
-    </ul>
+    <div class="top-row">
+        <div class="big-logo top-row-link link"><a href="catalog.html"><img src="images/theoremica-logo.svg"
+                                                                            alt="Теоремика"></a></div>
+        <div id="header-right-part">
+            <div class="login button top-row-link link"><a href="login.html">Вход</a></div>
+            <div class="registration button top-row-link link"><a href="register.html">Регистрация</a></div>
+        </div>
+    </div>
 </header>
 <body style="background: #F6F7FB">
 <ul class="main1">
@@ -56,8 +67,4 @@
     </li>
 </ul>
 </body>
-<script type="module" src="js/catalog.js"></script>
-<script type="module" src="js/theory.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body);"></script>
 </html>

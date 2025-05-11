@@ -25,18 +25,6 @@ class Api {
         }
     }
 
-
-    async getTheoryByName(Name) {
-        try {
-            const response = await fetch(`${this.baseURL}/theories_title/${name}`);
-            if (!response.ok) throw new Error(`Theory with name ${name} not found`);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error(`Error fetching theory ${name}:`, error);
-        }
-    }
-
     async updateTheoryViews(id) {
         try {
             const response = await fetch(`${this.baseURL}/theories/${id}/views`, {
@@ -72,7 +60,8 @@ class Api {
             const response = await fetch(
                 `${this.baseURL}/signup`, {
                     method: "POST",
-                    body: userData
+                    body: userData,
+                    credentials: 'include'
                 }
             );
             if (!response.ok) throw new Error("Failed to signup");
@@ -88,7 +77,8 @@ class Api {
             const response = await fetch(
                 `${this.baseURL}/login`, {
                     method: "POST",
-                    body: userData
+                    body: userData,
+                    credentials: 'include'
                 }
             );
             if (!response.ok) throw new Error("Failed to login");
@@ -96,6 +86,22 @@ class Api {
             return data;
         } catch (error) {
             console.error("Error logging in:", error);
+        }
+    }
+
+    async logout() {
+        try {
+            const response = await fetch(
+                `${this.baseURL}/logout`, {
+                    method: "POST",
+                    credentials: 'include'
+                }
+            );
+            if (!response.ok) throw new Error("Failed to logout");
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error("Error logging out:", error);
         }
     }
 
@@ -112,6 +118,26 @@ class Api {
             return data;
         } catch (error) {
             console.error("Error getting current user", error);
+        }
+    }
+
+    async change_theory(id, title, description) {
+        try {
+            const response = await fetch(
+                `${this.baseURL}/theory_change/${id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({id: id, title: title, description: description})
+                }
+            );
+            if (!response.ok) throw new Error("Failed to change theory");
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error("Error changing a theory:", error);
         }
     }
 }

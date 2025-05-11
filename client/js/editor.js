@@ -1,16 +1,17 @@
 import api from "./api.js";
-import {setHeartsListeners} from "./hearts.js";
-// import katex from "express/lib/view";
 
+const user = await api.getCurrentUser()
+if (!(user?.is_admin && user['is_admin'])) {
+    window.location.href = '/'
+}
 document.addEventListener("DOMContentLoaded", async function () {
-    // Код здесь будет ждать до загрузки DOM
     const url_string = window.location.href;
     const url = new URL(url_string);
     const id = url.searchParams.get("id");
     console.log(id);
-    const theoryContent = document.getElementById("login-form");
-    const theoryId = id;
-    const theory = await api.getTheoryById(theoryId);
+    const theoryContent = document.getElementById("editor-form");
+    const theory = await api.getTheoryById(id);
+    const editorForm = document.getElementById('editor-form');
     console.log(theory);
     theoryContent.innerHTML = `
     <div class="form-item">
@@ -32,18 +33,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     </button>
     `;
 
-    renderMathInElement(document.body, {
-        delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false},
-        ],
-    });
-    document.getElementById("image-content").innerHTML = `
-    <img style="width:75%;height:75%; margin-right:-100px; margin-top: 65px" alt="" src=${
-        theory.images?.[0]?.filename ?? ""
-    }>
-    `;
-    setHeartsListeners();
+    editorForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        sendData();
+    })
 
-    await api.updateTheoryViews(theoryId);
-});
+    async function sendData() {
+        console.log(editorForm)
+        const formData = new FormData(editorForm);
+        const formArray = Array.from(formData);
+        console.log(formArray);
+        await api.change_theory(id, formArray[0][1], formArray[1][1]);
+        window.location.href = '/'
+    }
+})

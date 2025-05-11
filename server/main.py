@@ -130,6 +130,7 @@ def get_theory(id):
         'topics': [topic.topic for topic in theory.topics or []],
     })
 
+
 @app.route('/theories_title/<title>', methods=['GET'])
 def get_theory_title(title):
     theory = GeometryTheory.query.get(title)
@@ -146,12 +147,19 @@ def get_theory_title(title):
         'topics': [topic.topic for topic in theory.topics or []],
     })
 
-@app.route('/theories_change/<int:id>/<title>', methods=['GET'])
-def change_theory(name):
-    theory = GeometryTheory.query.get(name)
-    if not theory:
-        abort(404, description=f"Theory with name {name} not found")
 
+@login_required
+@app.route('/theory_change/<int:id>', methods=['POST'])
+def change_theory(id):
+    if not current_user.is_authenticated or 'is_admin' not in current_user or not current_user['is_admin']:
+        return jsonify({'message': 'Доступ только администраторам'})
+    theory = GeometryTheory.query.get(id)
+    params = request.get_json()
+    if not theory:
+        abort(404, description=f"Theory with ID {id} not found")
+    theory.title = params.get('title')
+    theory.description = params.get('description')
+    db.session.commit()
     return jsonify({
         'id': theory.id,
         'title': theory.title,
@@ -161,6 +169,7 @@ def change_theory(name):
         'grade': [grade.grade for grade in theory.grade or []],
         'topics': [topic.topic for topic in theory.topics or []],
     })
+
 
 @app.route('/theories/<int:id>/views', methods=['PUT'])
 def update_views(id):
@@ -183,7 +192,6 @@ def not_found(error):
 
 @login_manager.user_loader
 def load_user(user_id):
-    print('LOAD_USER_ID:', user_id)
     return User.query.get(user_id)
 
 
@@ -212,9 +220,9 @@ def signup():
         is_admin=is_admin
     )
     user.set_password(password)
-    login_user(user, remember=True)
     db.session.add(user)
     db.session.commit()
+    login_user(user, remember=True)
     return jsonify({'message': 'Аккаунт создан'})
 
 
@@ -232,8 +240,6 @@ def login():
         return jsonify({'message': 'Неверные почта или пароль'}), 400
 
     login_user(user, remember=True)
-    print(current_user.is_authenticated)
-    print(current_user.surname, current_user.first_name, current_user.is_admin)
     return jsonify({'message': 'Успешная авторизация'})
 
 
