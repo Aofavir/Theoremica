@@ -25,6 +25,18 @@ class Api {
         }
     }
 
+
+    async getTheoryByName(Name) {
+        try {
+            const response = await fetch(`${this.baseURL}/theories_title/${name}`);
+            if (!response.ok) throw new Error(`Theory with name ${name} not found`);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error(`Error fetching theory ${name}:`, error);
+        }
+    }
+
     async updateTheoryViews(id) {
         try {
             const response = await fetch(`${this.baseURL}/theories/${id}/views`, {
@@ -87,21 +99,21 @@ class Api {
         }
     }
 
-    // async getCurrentUser() {
-    //     try {
-    //         const response = await fetch(
-    //             `${this.baseURL}/get_current_user`,
-    //             {
-    //                 credentials: 'include'
-    //             }
-    //         );
-    //         if (!response.ok) throw new Error("Failed to get current user");
-    //         const data = await response.json();
-    //         return data;
-    //     } catch (error) {
-    //         console.error("Error getting current user", error);
-    //     }
-    // }
+    async getCurrentUser() {
+        try {
+            const response = await fetch(
+                `${this.baseURL}/get_current_user`,
+                {
+                    credentials: 'include'
+                }
+            );
+            if (!response.ok) throw new Error("Failed to get current user");
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error("Error getting current user", error);
+        }
+    }
 }
 
 export default new Api();

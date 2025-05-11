@@ -130,6 +130,37 @@ def get_theory(id):
         'topics': [topic.topic for topic in theory.topics or []],
     })
 
+@app.route('/theories_title/<title>', methods=['GET'])
+def get_theory_title(title):
+    theory = GeometryTheory.query.get(title)
+    if not theory:
+        abort(404, description=f"Theory with title {title} not found")
+
+    return jsonify({
+        'id': theory.id,
+        'title': theory.title,
+        'description': theory.description,
+        'views': theory.views,
+        'images': [{'id': img.id, 'filename': img.filename} for img in theory.images],
+        'grade': [grade.grade for grade in theory.grade or []],
+        'topics': [topic.topic for topic in theory.topics or []],
+    })
+
+@app.route('/theories_change/<int:id>/<title>', methods=['GET'])
+def change_theory(name):
+    theory = GeometryTheory.query.get(name)
+    if not theory:
+        abort(404, description=f"Theory with name {name} not found")
+
+    return jsonify({
+        'id': theory.id,
+        'title': theory.title,
+        'description': theory.description,
+        'views': theory.views,
+        'images': [{'id': img.id, 'filename': img.filename} for img in theory.images],
+        'grade': [grade.grade for grade in theory.grade or []],
+        'topics': [topic.topic for topic in theory.topics or []],
+    })
 
 @app.route('/theories/<int:id>/views', methods=['PUT'])
 def update_views(id):
@@ -152,6 +183,7 @@ def not_found(error):
 
 @login_manager.user_loader
 def load_user(user_id):
+    print('LOAD_USER_ID:', user_id)
     return User.query.get(user_id)
 
 
@@ -180,9 +212,9 @@ def signup():
         is_admin=is_admin
     )
     user.set_password(password)
+    login_user(user, remember=True)
     db.session.add(user)
     db.session.commit()
-    login_user(user, remember=True)
     return jsonify({'message': 'Аккаунт создан'})
 
 
@@ -212,17 +244,17 @@ def logout():
     return jsonify({'message': 'Успешный выход из аккаунта'})
 
 
-# @app.route('/get_current_user', methods=['GET'])
-# @login_required
-# def get_current_user():
-#     print(current_user.is_authenticated)
-#     if not current_user.is_authenticated:
-#         return jsonify({'message': 'You are not authorized'}), 401
-#     return jsonify({
-#         'first_name': current_user.first_name,
-#         'surname': current_user.surname,
-#         'is_admin': current_user.is_admin
-#     }), 200
+@app.route('/get_current_user', methods=['GET'])
+@login_required
+def get_current_user():
+    print(current_user.is_authenticated)
+    if not current_user.is_authenticated:
+        return jsonify({'message': 'You are not authorized'}), 401
+    return jsonify({
+        'first_name': current_user.first_name,
+        'surname': current_user.surname,
+        'is_admin': current_user.is_admin
+    }), 200
 
 
 if __name__ == '__main__':
