@@ -14,8 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(loginForm);
         console.log(Array.from(formData));
         formData.append('remember', checkbox.checked);
-        await api.login(formData);
-        console.log('successful login')
-        window.location.href='/';
+        const test = await api.login(formData);
+        if (test.message === 'Успешная авторизация') {
+            console.log('successful login')
+            window.location.href='/';
+        } else {
+            const responseBox = document.getElementById('error-response')
+            responseBox.innerHTML = test.message
+        }
     }
 });

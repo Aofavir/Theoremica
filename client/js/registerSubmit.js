@@ -12,7 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(registerForm)
         const formData = new FormData(registerForm);
         console.log(Array.from(formData));
-        await api.signup(formData);
-        window.location.href='/';
+        const test = await api.signup(formData);
+        if (test.message === 'Аккаунт создан') {
+            console.log('successful register')
+            window.location.href='/';
+        } else {
+            const responseBox = document.getElementById('error-response')
+            responseBox.innerHTML = test.message
+            console.log(test)
+        }
     }
 });

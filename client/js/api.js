@@ -64,8 +64,10 @@ class Api {
                     credentials: 'include'
                 }
             );
-            if (!response.ok) throw new Error("Failed to signup");
             const data = await response.json();
+            // console.log(data);
+            // if (!response.ok) throw new Error("Failed to signup");
+            if (!response.ok) {console.error('Error signing up: Failed to singup')}
             return data;
         } catch (error) {
             console.error("Error signing up:", error);
@@ -81,12 +83,17 @@ class Api {
                     credentials: 'include'
                 }
             );
-            if (!response.ok) throw new Error("Failed to login");
+
             const data = await response.json();
-            return data;
+            // console.log(data);
+            // if (!response.ok) throw new Error("Failed to login");
+            if (!response.ok) {console.error('Error logging in: Failed to login')}
+            return data
         } catch (error) {
             console.error("Error logging in:", error);
+
         }
+
     }
 
     async logout() {
