@@ -73,11 +73,7 @@ class User(db.Model, UserMixin, SerializerMixin):
         return check_password_hash(self.hashed_password, password)
 
     def get_id(self):
-        return str(self.id)
-
-    @property
-    def is_active(self):
-        return True  # Or your custom logic
+        return self.id
 
 
 with app.app_context():
@@ -151,8 +147,9 @@ def get_theory_title(title):
 @login_required
 @app.route('/theory_change/<int:id>', methods=['POST'])
 def change_theory(id):
-    # if not current_user.is_authenticated or 'is_admin' not in current_user or not current_user['is_admin']:
-    #     return jsonify({'message': 'Доступ только администраторам'})
+    if not current_user.is_admin:
+        return jsonify({'message': 'Доступ только администраторам'}), 403
+
     theory = GeometryTheory.query.get(id)
     params = request.get_json()
     if not theory:
@@ -192,7 +189,7 @@ def not_found(error):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(user_id)
+    return User.query.get(int(user_id))
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -239,7 +236,7 @@ def login():
     if not user or not user.check_password(password):
         return jsonify({'message': 'Неверные почта или пароль'}), 400
 
-    login_user(user, remember=True)
+    login_user(user, remember=remember)
     return jsonify({'message': 'Успешная авторизация'})
 
 
@@ -253,9 +250,6 @@ def logout():
 @app.route('/get_current_user', methods=['GET'])
 @login_required
 def get_current_user():
-    print(current_user.is_authenticated)
-    if not current_user.is_authenticated:
-        return jsonify({'message': 'You are not authorized'}), 401
     return jsonify({
         'first_name': current_user.first_name,
         'surname': current_user.surname,

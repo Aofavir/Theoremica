@@ -137,7 +137,8 @@ class Api {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({id: id, title: title, description: description})
+                    body: JSON.stringify({id: id, title: title, description: description}),
+                    credentials: 'include',
                 }
             );
             if (!response.ok) throw new Error("Failed to change theory");
