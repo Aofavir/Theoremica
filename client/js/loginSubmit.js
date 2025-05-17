@@ -10,13 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     async function sendData() {
-        console.log(loginForm)
         const formData = new FormData(loginForm);
-        console.log(Array.from(formData));
         formData.append('remember', checkbox.checked);
         const test = await api.login(formData);
         if (test.message === 'Успешная авторизация') {
-            console.log('successful login')
             window.location.href='/';
         } else {
             const responseBox = document.getElementById('error-response')

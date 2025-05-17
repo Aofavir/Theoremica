@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.classList.contains("logout")) {
             event.preventDefault();
             api.logout();
-            console.log('logged out')
             window.location.href='/'
         }
     });

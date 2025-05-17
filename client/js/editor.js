@@ -9,11 +9,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     const url_string = window.location.href;
     const url = new URL(url_string);
     const id = url.searchParams.get("id");
-    console.log(id);
     const theoryContent = document.getElementById("editor-form");
     const theory = await api.getTheoryById(id);
     const editorForm = document.getElementById('editor-form');
-    console.log(theory);
     theoryContent.innerHTML = `
     <div class="form-item">
         Название
@@ -40,10 +38,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
 
     async function sendData() {
-        console.log(editorForm)
         const formData = new FormData(editorForm);
         const formArray = Array.from(formData);
-        console.log(formArray);
         await api.change_theory(id, formArray[0][1], formArray[1][1]);
         window.location.href = '/'
     }

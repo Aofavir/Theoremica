@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     const theoryContent = document.getElementById("theory-content");
     const theoryId = theoryContent.dataset.theoryId;
     const theory = await api.getTheoryById(theoryId);
-    console.log(theory);
     theoryContent.innerHTML = `
     <li><span class="topic">${theory.topics}</span> <span class="grade">${theory.grade} класс</span><img class='heart1' alt=""
                                                                                                      src="images/heart.svg"></li>

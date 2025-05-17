@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         heart.addEventListener('click', () => {
             if (heart.classList.contains('heart-filled')) {
                 heart.src = 'images/heart.svg';
-                console.log(1);
                 // remove from localStorage
                 const likes = localStorage.getItem('likes');
                 if (likes) {
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } else {
                 heart.src = 'images/heart-filled.png';
-                console.log(heart);
                 // add to localStorage
                 const likes = localStorage.getItem('likes');
                 localStorage.setItem('likes', JSON.stringify([...(likes ? JSON.parse(likes) : []), heart.dataset.id]));

@@ -4,9 +4,7 @@ import {buildLikesList, setHeartsListeners} from "./hearts.js";
 document.addEventListener("DOMContentLoaded", async function () {
     // Код здесь будет ждать до загрузки DOM
     const theories = await api.getAllTheories();
-    console.log("All theories", theories);
     const user = await api.getCurrentUser()
-    console.log(user)
     let theoriesHtml = "";
     if (user?.is_admin && user['is_admin']) {
         for (const theory of theories) {
@@ -53,7 +51,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     const popular = await api.getPopularTheories();
-    console.log("Popular", popular);
     let popularListHtml = "";
     for (const popularTheory of popular) {
         popularListHtml += `<li class="string"><a href="${popularTheory.id}.html">${popularTheory.title}</a></li>`;
